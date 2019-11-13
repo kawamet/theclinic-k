@@ -13,7 +13,8 @@ public class Start {
     public String sayHello(){
         return "hello!!";
     }
-    @GetMapping("/show")
+
+    @GetMapping("/add")
     public Person addPerson(){
         Person person = new Person("James");
         return personRepository.save(person);
