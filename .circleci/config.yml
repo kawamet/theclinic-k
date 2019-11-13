@@ -9,7 +9,7 @@ jobs:
       # specify the version you desire here
       - image: circleci/openjdk:8-jdk-stretch
         environment:
-          JDBC_DATABASE_URL: jdbc:postgresql://localhost:5432/theclinic
+          JDBC_DATABASE_URL: jdbc:postgresql://localhost:5432/theclinic-k
           JDBC_DATABASE_USERNAME: root
           JDBC_DATABASE_PASSWORD: root
 

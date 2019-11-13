@@ -5,13 +5,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class Start {
+public class PersonStart {
+    @Autowired
+    PersonRepository personRepository;
 
-    @GetMapping("/hello")
-    public String sayHello(){
-        return "hello!!";
+    @GetMapping("/add")
+    public Person addPerson(){
+        Person person = new Person("James");
+        return personRepository.save(person);
     }
-
-
-
 }
