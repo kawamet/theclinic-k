@@ -19,7 +19,7 @@ The system stores medical records.
 ---
 ### Launch
 
-https://theclinic-k.herokuapp.com/
+https://theclinic-k.herokuapp.com/hello
 
 ---
 ### Project status 
