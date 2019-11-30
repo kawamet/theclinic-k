@@ -15,6 +15,7 @@ The system stores medical records.
 * [PostgreSQL](https://www.postgresql.org/)
 * [Docker](https://www.docker.com/)
 * [CircleCi](https://circleci.com/)
+* [Intellij Ultimate] (https://www.jetbrains.com/idea/download/#section=windows)
 
 ---
 ### Launch
