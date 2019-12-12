@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head xmlns:th="http://www.w3.org/1999/xhtml">
+    <meta charset="UTF-8">
+    <title>Patient added</title>
+</head>
+<body>
+
+<p th:text="'ID:  '+ ${patient.id}"/>
+<p th:text="'First name:  '+ ${patient.firstName}"/>
+<p th:text="'Last name: ' + ${patient.lastName}"/>
+<p th:text="'Phone number: ' + ${patient.phoneNumber}"/>
+<p th:text="'National Insurance Number ' + ${patient.nationalInsuranceNumber}"/>
+<a href="/addPatient">Add another patient</a>
+<a href="/showAllPatients">Show all patients</a>
+
+</body>
+</html>

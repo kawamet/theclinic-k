@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head xmlns:th="http://www.w3.org/1999/xhtml">
+    <meta charset="UTF-8">
+    <title>Patient already exists</title>
+</head>
+<body>
+Patient already exists.
+<table>
+<tr th:each="patientTemp: ${patient}">
+    <td th:text="${patientTemp.id}"/>
+    <td th:text="${patientTemp.firstName}"/>
+    <td th:text="${patientTemp.lastName}"/>
+</tr>
+</table>
+</body>
+</html>
