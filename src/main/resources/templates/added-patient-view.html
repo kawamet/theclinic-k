@@ -9,10 +9,13 @@
 <p th:text="'ID:  '+ ${patient.id}"/>
 <p th:text="'First name:  '+ ${patient.firstName}"/>
 <p th:text="'Last name: ' + ${patient.lastName}"/>
+<p th:text="'Last name: ' + ${patient.gender}"/>
 <p th:text="'Phone number: ' + ${patient.phoneNumber}"/>
+<p th:text="'Birth date: ' + ${patient.birthDate}"/>
 <p th:text="'National Insurance Number ' + ${patient.nationalInsuranceNumber}"/>
-<a href="/addPatient">Add another patient</a>
-<a href="/showAllPatients">Show all patients</a>
+<a href="/patient/addPatient">Add another patient</a><br>
+<a href="/showAllPatients">Show all patients</a><br>
+
 
 </body>
 </html>

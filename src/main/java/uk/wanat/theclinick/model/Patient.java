@@ -2,10 +2,12 @@ package uk.wanat.theclinick.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Data
@@ -27,11 +29,13 @@ public class Patient {
     private String firstName;
     @Column(name = "last_name", length = 50)
     private String lastName;
+    @Enumerated(value = EnumType.STRING)
     private Gender gender;
     @Column(name = "phone_number", length = 30)
     private String phoneNumber;
     @Column(name = "national_insurance_number", length = 30)
     private String nationalInsuranceNumber;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate birthDate;
     @OneToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
             CascadeType.REFRESH, CascadeType.REMOVE})

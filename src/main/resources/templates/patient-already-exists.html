@@ -5,13 +5,9 @@
     <title>Patient already exists</title>
 </head>
 <body>
-Patient already exists.
-<table>
-<tr th:each="patientTemp: ${patient}">
-    <td th:text="${patientTemp.id}"/>
-    <td th:text="${patientTemp.firstName}"/>
-    <td th:text="${patientTemp.lastName}"/>
-</tr>
-</table>
+
+Patient already exists!
+<a href="/showAllPatients">Show all patients</a>
+
 </body>
 </html>

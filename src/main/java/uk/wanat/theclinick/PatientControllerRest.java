@@ -13,6 +13,7 @@ import uk.wanat.theclinick.repository.PatientRepository;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.Date;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
@@ -31,6 +32,7 @@ public class PatientControllerRest {
     @GetMapping("/add")
     public Patient addPatient() {
         LocalDate birthDate = LocalDate.of(1968,9,25);
+        Date date = new Date();
         Patient patient = new Patient("Will", "Smith",Gender.MALE, "07776512547","SZ102030", birthDate );
         Address address = new Address("Westminster", "SW1A 0AA", "London");
         MedicalHistory medicalHistory = new MedicalHistory();
