@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<table>
+    <tr th:each="doctorTemp: ${doctorList}">
+        <td th:text="${doctorTemp.id}"/>
+        <td th:text="${doctorTemp.firstName}"/>
+        <td th:text="${doctorTemp.lastName}"/>
+        <td th:text="${doctorTemp.speciality}"/>
+        <td><a href="#" th:href="@{'/doctor/' + ${doctorTemp.id} + '/update'}">Update</a></td>
+<!--        <td><a href="#" th:href="@{'/doctor/' + ${doctorTemp.id} + '/showDetails'}">Show details</a></td>-->
+    </tr>
+</table>
+
+</body>
+</html>

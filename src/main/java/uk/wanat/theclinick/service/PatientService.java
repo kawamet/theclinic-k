@@ -7,8 +7,8 @@ import java.util.Optional;
 
 public interface PatientService {
 
-
     Optional<Patient> findById(Long patientId);
+
     Patient findFirstById(Long id);
 
     List<Patient> findAll();

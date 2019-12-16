@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head xmlns:th="http://www.w3.org/1999/xhtml">
+    <meta charset="UTF-8">
+    <title>Edit patient</title>
+</head>
+<body>
+
+
+<form th:object="${patient}" th:action="@{/patient/}" method="post">
+    <input type="hidden" th:field="*{id}"/>
+    <input type="text" th:field="*{firstName}"/>
+    <select name="genderOpt" th:field="*{gender}">    
+        <option th:each="genderOpt : ${T(uk.wanat.theclinick.model.Gender).values()}"
+                th:value="${genderOpt}" th:text="${genderOpt.displayValue}"></option>
+    </select>
+    <input type="text" th:field="*{lastName}"/>
+    <input type="text" th:field="*{phoneNumber}"/>
+    <input type="date" th:field="*{birthDate}"/>
+    <input type="text" th:field="*{nationalInsuranceNumber}"/>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+</body>
+</html>

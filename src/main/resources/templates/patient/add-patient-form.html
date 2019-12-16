@@ -10,7 +10,10 @@
 <form action="#" th:action="@{/patient/addPatient}" th:object="${patient}" method="post">
     <p>First name: <input type="text" th:field="*{firstName}"/></p>
     <p>Last name: <input type="text" th:field="*{lastName}"/></p>
-    <p>Gender: <input type="text" th:field="*{gender}"/></p>
+    <select name="genderOpt" th:field="*{gender}">    
+        <option th:each="genderOpt : ${T(uk.wanat.theclinick.model.Gender).values()}"
+                th:value="${genderOpt}" th:text="${genderOpt.displayValue}"></option>
+    </select>
     <p>Phone number: <input type="text" th:field="*{phoneNumber}"/></p>
     <p>Birth date: <input type="date" th:field="*{birthDate}"/></p>
     <p>National Insurance Number: <input type="text" th:field="*{nationalInsuranceNumber}"/></p>
