@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head xmlns:th="http://www.w3.org/1999/xhtml">
+    <meta charset="UTF-8">
+    <title>Find a doctor</title>
+</head>
+<body>
+Find a doctor
+<ul th:each="doctorTemp : ${doctorsWithSpecialityList}">
+    <a href="#" th:href="@{'/appointment/' + ${doctorTemp.speciality} + '/' + ${doctorTemp.id} + '/chosen'}"><li th:text="${doctorTemp.firstName + ' ' +  doctorTemp.lastName}"></li></a>
+</ul>
+
+
+</form>
+</body>
+</html>

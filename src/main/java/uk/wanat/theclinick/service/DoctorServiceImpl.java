@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import uk.wanat.theclinick.model.Doctor;
 import uk.wanat.theclinick.model.Patient;
+import uk.wanat.theclinick.model.Speciality;
 import uk.wanat.theclinick.repository.DoctorRepository;
 
 import java.util.List;
@@ -47,5 +48,10 @@ public class DoctorServiceImpl implements DoctorService {
     @Override
     public void deleteById(Long doctorId) {
         doctorRepository.deleteById(doctorId);
+    }
+
+    @Override
+    public List<Doctor> findAllBySpeciality(Speciality specielity) {
+        return doctorRepository.findAllBySpeciality(specielity);
     }
 }

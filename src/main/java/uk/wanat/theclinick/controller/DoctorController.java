@@ -16,9 +16,6 @@ public class DoctorController {
     @Autowired
     DoctorServiceImpl doctorServiceImpl;
 
-    public DoctorController(DoctorServiceImpl doctorServiceImpl) {
-        this.doctorServiceImpl = doctorServiceImpl;
-    }
 
     @RequestMapping("/doctor/addDoctor")
     public String addDoctor(Model model){

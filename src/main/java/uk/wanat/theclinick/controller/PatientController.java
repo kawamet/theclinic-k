@@ -19,10 +19,6 @@ public class PatientController {
     @Autowired
     PatientServiceImpl patientServiceImpl;
 
-    public PatientController(PatientServiceImpl patientServiceImpl) {
-        this.patientServiceImpl = patientServiceImpl;
-    }
-
     @RequestMapping("/showAllPatients")
     public String showPatients(Model model) {
         model.addAttribute("patientList", patientServiceImpl.findAll());

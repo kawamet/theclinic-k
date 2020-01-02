@@ -1,13 +1,15 @@
 package uk.wanat.theclinick.model;
 
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 
 @Entity
@@ -22,7 +24,6 @@ public class Doctor {
     private String firstName;
     @Column(name = "last_name", length = 50)
     private String lastName;
-
 
     @OneToMany(mappedBy="doctor",
             cascade= {CascadeType.PERSIST, CascadeType.MERGE,
@@ -44,7 +45,6 @@ public class Doctor {
         tempAppointment.setDoctor(this);
     }
 
-
     @Override
     public String toString() {
         return "Doctor{" +
@@ -52,8 +52,6 @@ public class Doctor {
                 ", speciality=" + speciality +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", appointments=" + appointments +
                 '}';
     }
-
 }

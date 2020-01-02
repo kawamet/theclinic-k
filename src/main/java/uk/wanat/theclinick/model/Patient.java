@@ -1,16 +1,17 @@
 package uk.wanat.theclinick.model;
 
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 
 
@@ -70,4 +71,16 @@ public class Patient {
         tempAppointment.setPatient(this);
     }
 
+    @Override
+    public String toString() {
+        return "Patient{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", gender=" + gender +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", nationalInsuranceNumber='" + nationalInsuranceNumber + '\'' +
+                ", birthDate=" + birthDate +
+                '}';
+    }
 }

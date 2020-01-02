@@ -1,6 +1,7 @@
 package uk.wanat.theclinick.service;
 
 import uk.wanat.theclinick.model.Doctor;
+import uk.wanat.theclinick.model.Speciality;
 
 import java.util.List;
 import java.util.Optional;
@@ -18,4 +19,6 @@ public interface DoctorService {
     Doctor update(Long patientId, Doctor patient);
 
     void deleteById(Long appointmentId);
+
+    List<Doctor> findAllBySpeciality(Speciality speciality);
 }
