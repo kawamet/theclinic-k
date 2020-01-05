@@ -25,7 +25,7 @@ import java.util.stream.Collectors;
 @Controller
 public class AppointmentController {
 
-    private String doctorId = null;
+    private String doctorId;
 
     @Autowired
     AppointmentServiceImpl appointmentServiceImpl;

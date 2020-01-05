@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:>
+<head xmlns:th="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="UTF-8">
+        <title>Add medical history</title>
+    </head>
+<body>
+<form action="#" th:action="@{/medicalHistory/addMedicalHistory}" th:object="${medicalHistory}" method="post">
+    <p>Allergy: <input type="text" th:field="*{allergy}"/></p>
+    <p>Undergone surgery: <input type="text" th:field="*{undergoneSurgery}"/></p>
+    <p>Pregnancy: <input type="text" th:field="*{pregnancy}"/></p>
+    <p>Diabetes: <input type="checkbox" th:field="*{diabetes}"/></p>
+    <p>Cancer family history: <input type="text" th:field="*{cancerFamilyHistory}"/></p>
+    <p>Under medications: <input type="text" th:field="*{underMedications}"/></p>
+
+    <p><input type="submit" value="Submit"/> <input type="reset" value="Reset"/></p>
+</form>
+
+
+</body>
+</html>

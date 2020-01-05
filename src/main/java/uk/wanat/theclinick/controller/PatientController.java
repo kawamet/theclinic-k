@@ -54,5 +54,4 @@ public class PatientController {
         patientServiceImpl.update(patient.getId(), patient);
         return "redirect:/showAllPatients";
     }
-
 }

@@ -41,7 +41,7 @@ public class AppointmentServiceImpl implements AppointmentService {
     }
 
     @Override
-    public Appointment update(Long patientId, Appointment appointment) {
+    public Appointment update(Long appointmentId, Appointment appointment) {
         return appointmentRepository.save(appointment);
     }
 
