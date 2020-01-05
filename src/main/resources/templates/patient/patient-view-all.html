@@ -15,7 +15,9 @@
         <td th:text="${patientTemp.phoneNumber}"/>
         <td th:text="${patientTemp.birthDate}"/>
         <td th:text="${patientTemp.nationalInsuranceNumber}"/>
-        <td><a href="#" th:href="@{'/patient/' + ${patientTemp.id} + '/update'}">Update</a></td>
+        <td><a href="#" th:href="@{'/address/' + ${patientTemp.id} + '/addAddress'}">Add address</a>
+        <td><a href="#" th:href="@{'/patient/' + ${patientTemp.id} + '/update'}">Update</a>
+        </td>
     </tr>
 </table>
 </body>

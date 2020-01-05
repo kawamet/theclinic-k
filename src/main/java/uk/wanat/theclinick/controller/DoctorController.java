@@ -16,7 +16,6 @@ public class DoctorController {
     @Autowired
     DoctorServiceImpl doctorServiceImpl;
 
-
     @RequestMapping("/doctor/addDoctor")
     public String addDoctor(Model model){
         model.addAttribute("doctor", new Doctor());
@@ -32,7 +31,7 @@ public class DoctorController {
     @RequestMapping("/doctor/{id}/update")
     public String updateDoctor(@PathVariable String id, Model model){
         model.addAttribute("doctor", doctorServiceImpl.findById(Long.valueOf(id)));
-        return "doctor/edit-doctor";
+        return "doctor/update-doctor";
     }
 
     @PostMapping("/doctor")

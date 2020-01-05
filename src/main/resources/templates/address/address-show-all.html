@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head xmlns:th="http://www.w3.org/1999/xhtml">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<table>
+    <tr th:each="addressTemp: ${addressesList}">
+        <td th:text="${addressTemp.id}"/>
+        <td th:text="${addressTemp.street}"/>
+        <td th:text="${addressTemp.postcode}"/>
+        <td th:text="${addressTemp.city}"/>
+        <td><a href="#" th:href="@{'/address/' + ${addressTemp.id} + '/update'}">Update address</a></td>
+    </tr>
+</table>
+
+</body>
+</html>

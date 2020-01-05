@@ -96,7 +96,7 @@ public class AppointmentController {
     }
 
     @RequestMapping("/appointment/{id}/delete")
-    public String deleteAppointment(@PathVariable String id){
+    public String deleteAppointment(@PathVariable String id) {
         appointmentServiceImpl.deleteById(Long.valueOf(id));
         return "redirect:/showAllapointments";
     }
@@ -113,7 +113,6 @@ public class AppointmentController {
                 avaiableDatesList.add(LocalDateTime.of(date, localTimeStart));
             }
         }
-
         return avaiableDatesList;
     }
 

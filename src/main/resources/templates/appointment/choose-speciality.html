@@ -8,7 +8,6 @@
 <body>
 MEDICAL CONSULTATIONS
 
-
 <ul th:each="specielityTemp : ${T(uk.wanat.theclinick.model.Speciality).values()}">
     <a href="#" th:href="@{'/appointment/' + ${specielityTemp} + '/chosen'}"><li th:text="${specielityTemp.displayValue}"></li></a>
 </ul>

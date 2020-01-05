@@ -15,7 +15,6 @@ import java.util.List;
 @Controller
 public class PatientController {
 
-
     @Autowired
     PatientServiceImpl patientServiceImpl;
 
@@ -41,13 +40,13 @@ public class PatientController {
             }
         }
         patientServiceImpl.create(patient);
-        return "redirect:/showAllPatients";
+        return "patient/patient-created";
     }
 
     @RequestMapping("patient/{id}/update")
     public String updateUpdate(@PathVariable String id, Model model) {
         model.addAttribute("patient", patientServiceImpl.findFirstById(Long.valueOf(id)));
-        return "patient/edit-patient";
+        return "patient/update-patient";
     }
 
     @PostMapping("/patient")
