@@ -14,6 +14,8 @@
         <td th:text="${appointmentTemp.patient}"/>
         <td th:text="${appointmentTemp.appointmetDate.toLocalDate() + ' ' + appointmentTemp.appointmetDate.toLocalTime() }"/>
         <td><a href="#" th:href="@{'/appointment/' + ${appointmentTemp.id} + '/delete'}">Delete</a></td>
+        <td><a href="#" th:href="@{'/appointmentdetails/' + ${appointmentTemp.id} + '/addDetails'}">Add details</a></td>
+        <td><a href="#" th:href="@{'/appointmentdetails/' + ${appointmentTemp.id} + '/update'}">Update</a></td>
     </tr>
 </table>
 

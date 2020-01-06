@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:>
+<head xmlns:th="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="UTF-8">
+        <title>Add address</title>
+    </head>
+<body>
+<form action="#" th:action="@{/appointmentdetails/addDetails}" th:object="${appointmentdetails}" method="post">
+    <p>Nature of sickness and symptoms: <input type="text" th:field="*{natureOfSicknessAndSymptoms}"/></p>
+    <p>Medical examination: <input type="text" th:field="*{medicalExamination}"/></p>
+    <p>Treatment: <input type="text" th:field="*{treatment}"/></p>
+    <p>Medicine: <input type="text" th:field="*{medicine}"/></p>
+    <p><input type="submit" value="Submit"/> <input type="reset" value="Reset"/></p>
+</form>
+
+
+</body>
+</html>
