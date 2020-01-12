@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head xmlns:th="http://www.w3.org/1999/xhtml">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<form action="#" th:action="@{/appointment/addAppointment}" th:object="${appointment}" method="post">
+
+    <select th:field="*{appointmetDate}">
+        <option th:each="appointmentTimeTemp: ${availableTime}"
+                th:value="${appointmentTimeTemp}"
+                th:text="${appointmentTimeTemp.dayOfWeek + ' ' + appointmentTimeTemp.toLocalTime() + ' ' + appointmentTimeTemp.toLocalDate()}">
+        </option>
+    </select>
+
+    <p><input type="submit" value="Submit"/> <input type="reset" value="Reset"/></p>
+</form>
+
+
+</body>
+</html>

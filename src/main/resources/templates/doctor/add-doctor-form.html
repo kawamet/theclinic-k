@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:>
+<head xmlns:th="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="UTF-8">
+        <title>Add doctor</title>
+    </head>
+<body>
+<form action="#" th:action="@{/doctor/addDoctor}" th:object="${doctor}" method="post">
+    <p>First name: <input type="text" th:field="*{firstName}"/></p>
+    <p>Last name: <input type="text" th:field="*{lastName}"/></p>
+
+    <select name="specialityOpt" th:field="*{speciality}">    
+        <option th:each="specialityOpt : ${T(uk.wanat.theclinick.model.Speciality).values()}"
+                th:value="${specialityOpt}" th:text="${specialityOpt.displayValue}"></option>
+    </select>
+
+
+    <p><input type="submit" value="Submit"/> <input type="reset" value="Reset"/></p>
+</form>
+
+
+</body>
+</html>

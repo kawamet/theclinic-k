@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:>
+<head xmlns:th="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="UTF-8">
+        <title>Select specialization</title>
+    </head>
+<body>
+MEDICAL CONSULTATIONS
+
+<ul th:each="specielityTemp : ${T(uk.wanat.theclinick.model.Speciality).values()}">
+    <a href="#" th:href="@{'/appointment/' + ${specielityTemp} + '/chosen'}"><li th:text="${specielityTemp.displayValue}"></li></a>
+</ul>
+
+</body>
+</html>

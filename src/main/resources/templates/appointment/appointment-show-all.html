@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head xmlns:th="http://www.w3.org/1999/xhtml">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<table>
+    <tr th:each="appointmentTemp: ${appointmentList}">
+        <td th:text="${appointmentTemp.id}"/>
+        <td th:text="${appointmentTemp.doctor}"/>
+        <td th:text="${appointmentTemp.patient}"/>
+        <td th:text="${appointmentTemp.appointmetDate.toLocalDate() + ' ' + appointmentTemp.appointmetDate.toLocalTime() }"/>
+        <td><a href="#" th:href="@{'/appointment/' + ${appointmentTemp.id} + '/delete'}">Delete</a></td>
+        <td><a href="#" th:href="@{'/appointmentdetails/' + ${appointmentTemp.id} + '/addDetails'}">Add details</a></td>
+        <td><a href="#" th:href="@{'/appointmentdetails/' + ${appointmentTemp.id} + '/update'}">Update</a></td>
+    </tr>
+</table>
+
+</body>
+</html>
