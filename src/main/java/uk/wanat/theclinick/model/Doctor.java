@@ -39,7 +39,12 @@ public class Doctor {
     public void add(Appointment tempAppointment) {
 
         if (appointments == null) {
-            appointments = new ArrayList<>();
+        public Doctor(Speciality speciality, String firstName, String lastName) {
+        this.speciality = speciality;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        appointments = new ArrayList<>();
+    }
         }
         appointments.add(tempAppointment);
         tempAppointment.setDoctor(this);
