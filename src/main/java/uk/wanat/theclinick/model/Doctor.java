@@ -34,21 +34,9 @@ public class Doctor {
         this.speciality = speciality;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.appointments = new ArrayList<>();
     }
 
-    public void add(Appointment tempAppointment) {
-
-        if (appointments == null) {
-        public Doctor(Speciality speciality, String firstName, String lastName) {
-        this.speciality = speciality;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        appointments = new ArrayList<>();
-    }
-        }
-        appointments.add(tempAppointment);
-        tempAppointment.setDoctor(this);
-    }
 
     @Override
     public String toString() {
