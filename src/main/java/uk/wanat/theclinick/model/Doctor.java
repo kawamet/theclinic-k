@@ -25,6 +25,7 @@ public class Doctor {
     @Column(name = "last_name", length = 50)
     private String lastName;
 
+
     @OneToMany(mappedBy="doctor",
             cascade= {CascadeType.PERSIST, CascadeType.MERGE,
                     CascadeType.DETACH, CascadeType.REFRESH})
@@ -34,16 +35,9 @@ public class Doctor {
         this.speciality = speciality;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.appointments = new ArrayList<>();
     }
 
-    public void add(Appointment tempAppointment) {
-
-        if (appointments == null) {
-            appointments = new ArrayList<>();
-        }
-        appointments.add(tempAppointment);
-        tempAppointment.setDoctor(this);
-    }
 
     @Override
     public String toString() {

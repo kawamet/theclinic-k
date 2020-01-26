@@ -1,6 +1,6 @@
 package uk.wanat.theclinick;
 
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -12,9 +12,8 @@ class StartTest {
     public void chcekIfHello() {
         Start start = new Start();
         String sayHello = start.sayHello();
-        Assert.assertEquals(sayHello, "hello!!");
+        Assertions.assertEquals(sayHello, "hello!!");
 
     }
-
 
 }

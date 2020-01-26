@@ -43,7 +43,6 @@ public class AppointmentController {
         return "appointment/appointment-show-all";
     }
 
-
     @RequestMapping("/appointment/chooseSpeciality")
     public String chooseSpeciality(Model model) {
         List<Speciality> enums = Arrays.asList(Speciality.values());

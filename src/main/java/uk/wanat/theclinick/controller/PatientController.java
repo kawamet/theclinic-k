@@ -44,13 +44,13 @@ public class PatientController {
     }
 
     @RequestMapping("patient/{id}/update")
-    public String updateUpdate(@PathVariable String id, Model model) {
+    public String updatePatient(@PathVariable String id, Model model) {
         model.addAttribute("patient", patientServiceImpl.findFirstById(Long.valueOf(id)));
         return "patient/update-patient";
     }
 
     @PostMapping("/patient")
-    public String updateUpdate(@ModelAttribute Patient patient) {
+    public String updatePatient(@ModelAttribute Patient patient) {
         patientServiceImpl.update(patient.getId(), patient);
         return "redirect:/showAllPatients";
     }

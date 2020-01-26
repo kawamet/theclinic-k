@@ -50,5 +50,4 @@ public class AppointmentDetailsController {
         appointmentDetailsServiceImpl.update(appointmentDetails.getId(), appointmentDetailsServiceImpl.create(appointmentDetails));
         return "index";
     }
-
 }

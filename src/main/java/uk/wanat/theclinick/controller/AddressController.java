@@ -1,5 +1,6 @@
 package uk.wanat.theclinick.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,7 +9,7 @@ import uk.wanat.theclinick.model.Address;
 import uk.wanat.theclinick.model.Patient;
 import uk.wanat.theclinick.service.AddressServiceImpl;
 import uk.wanat.theclinick.service.PatientServiceImpl;
-
+@Slf4j
 @Controller
 public class AddressController {
 
@@ -22,6 +23,7 @@ public class AddressController {
 
     @RequestMapping("/showAllAddresses")
     public String showAllAddresses(Model model) {
+        log.debug("Getting all adresses");
         model.addAttribute("addressesList", addressServiceImpl.findAll());
         return "address/address-show-all";
     }
