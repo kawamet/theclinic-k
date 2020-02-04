@@ -6,7 +6,7 @@ import uk.wanat.theclinick.model.MedicalHistory;
 import java.util.List;
 import java.util.Optional;
 
-public interface MedicalHistoryService {
+public interface MedicalHistoryService extends CrudService<MedicalHistory, Long> {
 
     Optional<MedicalHistory> findById(Long id);
 

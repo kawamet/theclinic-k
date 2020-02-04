@@ -1,5 +1,6 @@
 package uk.wanat.theclinick.model;
 
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -24,6 +25,7 @@ public class AppointmentDetails {
     @Column(name = "medicine")
     private String medicine;
 
+    @Builder
     public AppointmentDetails(String natureOfSicknessAndSymptoms, String medicalExamination, String treatment, String medicine) {
         this.natureOfSicknessAndSymptoms = natureOfSicknessAndSymptoms;
         this.medicalExamination = medicalExamination;

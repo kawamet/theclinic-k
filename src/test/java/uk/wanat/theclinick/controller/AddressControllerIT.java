@@ -19,7 +19,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-class AddressControllerTest {
+class AddressControllerIT {
 
     @Autowired
     private MockMvc mockMvc;
@@ -42,19 +42,18 @@ class AddressControllerTest {
     @Test
     void putAddAddressReturnsHttpStatusOk() throws Exception {
         //given
-        Address address = new Address("20 Deans Yd", "SW1P 3PA", "London");
-        address.setId(1l);
+        Address addressBuilder = Address.builder().street("20 Deans Yd").city("London").postcode("SW1P 3PA").build();
         //when
-        when(addressService.create(address)).thenReturn(expectedAddress());
+        when(addressService.create(addressBuilder)).thenReturn(expectedAddress());
 
         mockMvc.perform(
                 put("/address/{id}/addAddress", "1")
-                        .requestAttr("address", address))
+                        .requestAttr("address", addressBuilder))
                 .andExpect(status().isOk());
     }
 
     private Address expectedAddress() {
-        Address address = new Address("Singapore Roda", "W13 0FD", "Lonon");
+        Address address = Address.builder().street("20 Deans Yd").city("London").postcode("SW1P 3PA").build();
         return address;
     }
 

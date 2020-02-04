@@ -6,7 +6,7 @@ import uk.wanat.theclinick.model.AppointmentDetails;
 import java.util.List;
 import java.util.Optional;
 
-public interface AppointmentDetailsService {
+public interface AppointmentDetailsService extends CrudService<AppointmentDetails, Long> {
 
     Optional<AppointmentDetails> findById(Long id);
 

@@ -9,6 +9,7 @@ import javax.persistence.*;
 @Data
 @NoArgsConstructor
 
+
 @Entity
 @Table(name = "address")
 public class Address {
@@ -24,7 +25,9 @@ public class Address {
     @OneToOne(mappedBy = "address", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Patient patient;
 
-    public Address(String street, String postcode, String city) {
+    @Builder
+    public Address(Long id, String street, String postcode, String city) {
+        this.id = id;
         this.street = street;
         this.postcode = postcode;
         this.city = city;

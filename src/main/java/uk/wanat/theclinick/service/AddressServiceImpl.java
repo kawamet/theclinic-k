@@ -8,11 +8,17 @@ import uk.wanat.theclinick.repository.AddressRepository;
 import java.util.List;
 import java.util.Optional;
 
+
 @Component("addressservice")
 public class AddressServiceImpl implements AddressService {
 
+    private final AddressRepository addressRepository;
+
     @Autowired
-    AddressRepository addressRepository;
+    public AddressServiceImpl(AddressRepository addressRepository) {
+        this.addressRepository = addressRepository;
+    }
+
 
     @Override
     public Optional<Address> findById(Long id) {

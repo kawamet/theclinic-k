@@ -24,15 +24,15 @@ class AddressRepositoryIT {
     @Test
     void whenfindFirstById_thenReturnAddress() {
         //given
-        Address address = new Address("Singapore Roda", "W13 0FD", "Lonon");
-        entityManager.persist(address);
+        Address addressBuilder = Address.builder().street("20 Deans Yd").city("London").postcode("SW1P 3PA").build();
+        entityManager.persist(addressBuilder);
         entityManager.flush();
 
         //when
         Address addressRepositoryFirstById = addressRepository.findFirstById(1L);
 
         //than
-        assertThat(address).isEqualTo(addressRepositoryFirstById);
+        assertThat(addressBuilder).isEqualTo(addressRepositoryFirstById);
 
     }
 

@@ -5,7 +5,7 @@ import uk.wanat.theclinick.model.Address;
 import java.util.List;
 import java.util.Optional;
 
-public interface AddressService {
+public interface AddressService extends CrudService<Address, Long> {
 
     Optional<Address> findById(Long id);
 

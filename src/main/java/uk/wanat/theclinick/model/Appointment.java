@@ -1,5 +1,6 @@
 package uk.wanat.theclinick.model;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -41,6 +42,7 @@ public class Appointment {
     @JoinColumn(name = "appointment_id")
     private AppointmentDetails appointmentDetails;
 
+    @Builder
     public Appointment(LocalDateTime appointmetDate, ExaminationRoom examinationRoom) {
         this.appointmetDate = appointmetDate;
         this.examinationRoom = examinationRoom;
