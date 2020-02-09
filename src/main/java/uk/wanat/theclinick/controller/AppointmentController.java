@@ -72,21 +72,6 @@ public class AppointmentController {
         return "appointment/choose-appointemnt-time";
     }
 
-    private List<LocalDateTime> getAvailableAppointments(List<Appointment> doctorAppointments) {
-        List<LocalDateTime> doctorsAppointmesLDT = doctorAppointments.stream().map(Appointment::getAppointmetDate).collect(Collectors.toList());
-        List<LocalDateTime> allAppointemntsLDT = getAllAppointemntsTime();
-
-        List<LocalDateTime> unbookedAppointments = getAllAppointemntsTime();
-        for (LocalDateTime allAppointmentsTemp : allAppointemntsLDT) {
-            for (LocalDateTime doctorsAppointmets : doctorsAppointmesLDT) {
-                if (allAppointmentsTemp.isEqual(doctorsAppointmets)) {
-                    unbookedAppointments.remove(allAppointmentsTemp);
-                }
-            }
-        }
-        return unbookedAppointments;
-    }
-
     @PostMapping("/appointment/addAppointment")
     public String addAppointment(@ModelAttribute Appointment appointment, @ModelAttribute String appointmentTimeList) {
         appointment.setDoctor(doctorServiceImpl.findFirstById(Long.valueOf(doctorId)));
@@ -115,4 +100,19 @@ public class AppointmentController {
         return avaiableDatesList;
     }
 
+
+    private List<LocalDateTime> getAvailableAppointments(List<Appointment> doctorAppointments) {
+        List<LocalDateTime> doctorsAppointmesLDT = doctorAppointments.stream().map(Appointment::getAppointmetDate).collect(Collectors.toList());
+        List<LocalDateTime> allAppointemntsLDT = getAllAppointemntsTime();
+
+        List<LocalDateTime> unbookedAppointments = getAllAppointemntsTime();
+        for (LocalDateTime allAppointmentsTemp : allAppointemntsLDT) {
+            for (LocalDateTime doctorsAppointmets : doctorsAppointmesLDT) {
+                if (allAppointmentsTemp.isEqual(doctorsAppointmets)) {
+                    unbookedAppointments.remove(allAppointmentsTemp);
+                }
+            }
+        }
+        return unbookedAppointments;
+    }
 }

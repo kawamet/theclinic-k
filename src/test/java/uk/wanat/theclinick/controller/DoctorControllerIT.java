@@ -9,7 +9,8 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.test.web.servlet.MockMvc;
 import uk.wanat.theclinick.model.Address;
-import uk.wanat.theclinick.service.AddressServiceImpl;
+import uk.wanat.theclinick.model.Doctor;
+import uk.wanat.theclinick.service.DoctorServiceImpl;
 
 import java.util.Arrays;
 
@@ -19,7 +20,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-class AddressControllerIT {
+class DoctorControllerIT {
 
     @Autowired
     private MockMvc mockMvc;
@@ -28,7 +29,7 @@ class AddressControllerIT {
     private ApplicationContext applicationContext;
 
     @MockBean
-    private AddressServiceImpl addressService;
+    private DoctorServiceImpl doctorService;
 
 
     @BeforeEach
@@ -40,21 +41,20 @@ class AddressControllerIT {
     }
 
     @Test
-    void putAddAddressReturnsHttpStatusOk() throws Exception {
+    void putAddDoctorReturnsHttpStatusOk() throws Exception {
         //given
-        Address addressBuilder = Address.builder().street("20 Deans Yd").city("London").postcode("SW1P 3PA").build();
+        Doctor doctorBuilder = Doctor.builder().firstName("Will").build();
         //when
-        when(addressService.create(addressBuilder)).thenReturn(expectedAddress());
+        when(doctorService.create(doctorBuilder)).thenReturn(expectedAddress());
 
         mockMvc.perform(
-                put("/address/{id}/addAddress", "1")
-                        .sessionAttr("address", addressBuilder))
+                put("/doctor/addDoctor")
+                        .requestAttr("doctor", doctorBuilder))
                 .andExpect(status().isOk());
     }
 
-    private Address expectedAddress() {
-        Address address = Address.builder().street("20 Deans Yd").city("London").postcode("SW1P 3PA").build();
-        return address;
+    private Doctor expectedAddress() {
+        return Doctor.builder().firstName("Will").build();
     }
 
 }

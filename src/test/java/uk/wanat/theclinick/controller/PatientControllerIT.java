@@ -9,7 +9,8 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.test.web.servlet.MockMvc;
 import uk.wanat.theclinick.model.Address;
-import uk.wanat.theclinick.service.AddressServiceImpl;
+import uk.wanat.theclinick.model.Patient;
+import uk.wanat.theclinick.service.PatientServiceImpl;
 
 import java.util.Arrays;
 
@@ -19,7 +20,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-class AddressControllerIT {
+class PatientControllerIT {
 
     @Autowired
     private MockMvc mockMvc;
@@ -28,7 +29,7 @@ class AddressControllerIT {
     private ApplicationContext applicationContext;
 
     @MockBean
-    private AddressServiceImpl addressService;
+    private PatientServiceImpl patientService;
 
 
     @BeforeEach
@@ -40,21 +41,21 @@ class AddressControllerIT {
     }
 
     @Test
-    void putAddAddressReturnsHttpStatusOk() throws Exception {
+    void putAddPatientReturnsHttpStatusOk() throws Exception {
         //given
-        Address addressBuilder = Address.builder().street("20 Deans Yd").city("London").postcode("SW1P 3PA").build();
+        Patient patientBuilder = Patient.builder().firstName("Will").lastName("Smith").build();
         //when
-        when(addressService.create(addressBuilder)).thenReturn(expectedAddress());
+        when(patientService.create(patientBuilder)).thenReturn(expectedPatient());
 
         mockMvc.perform(
-                put("/address/{id}/addAddress", "1")
-                        .sessionAttr("address", addressBuilder))
+                put("/patient/addPatient")
+                        .requestAttr("patient", patientBuilder))
                 .andExpect(status().isOk());
     }
 
-    private Address expectedAddress() {
-        Address address = Address.builder().street("20 Deans Yd").city("London").postcode("SW1P 3PA").build();
-        return address;
+    private Patient expectedPatient() {
+        Patient patient = Patient.builder().firstName("Will").lastName("Smith").build();
+        return patient;
     }
 
 }

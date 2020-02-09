@@ -9,7 +9,8 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.test.web.servlet.MockMvc;
 import uk.wanat.theclinick.model.Address;
-import uk.wanat.theclinick.service.AddressServiceImpl;
+import uk.wanat.theclinick.model.AppointmentDetails;
+import uk.wanat.theclinick.service.AppointmentDetailsServiceImpl;
 
 import java.util.Arrays;
 
@@ -19,7 +20,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-class AddressControllerIT {
+class AppointmentDetailsControllerIT {
 
     @Autowired
     private MockMvc mockMvc;
@@ -28,7 +29,7 @@ class AddressControllerIT {
     private ApplicationContext applicationContext;
 
     @MockBean
-    private AddressServiceImpl addressService;
+    private AppointmentDetailsServiceImpl appointmentDetailsService;
 
 
     @BeforeEach
@@ -40,21 +41,20 @@ class AddressControllerIT {
     }
 
     @Test
-    void putAddAddressReturnsHttpStatusOk() throws Exception {
+    void putAddAppointmentDetailsReturnsHttpStatusOk() throws Exception {
         //given
-        Address addressBuilder = Address.builder().street("20 Deans Yd").city("London").postcode("SW1P 3PA").build();
+        AppointmentDetails appointmentDetailsBuilder = AppointmentDetails.builder().medicine("paracetamol").build();
         //when
-        when(addressService.create(addressBuilder)).thenReturn(expectedAddress());
+        when(appointmentDetailsService.create(appointmentDetailsBuilder)).thenReturn(expectedAddress());
 
         mockMvc.perform(
-                put("/address/{id}/addAddress", "1")
-                        .sessionAttr("address", addressBuilder))
+                put("/appointmentdetails/{id}/addDetails", "1")
+                        .sessionAttr("appointmentdetails", appointmentDetailsBuilder))
                 .andExpect(status().isOk());
     }
 
-    private Address expectedAddress() {
-        Address address = Address.builder().street("20 Deans Yd").city("London").postcode("SW1P 3PA").build();
-        return address;
+    private AppointmentDetails expectedAddress() {
+        return AppointmentDetails.builder().medicine("paracetamol").build();
     }
 
 }
