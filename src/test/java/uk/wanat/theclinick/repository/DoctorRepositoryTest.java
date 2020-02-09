@@ -31,7 +31,7 @@ class DoctorRepositoryTest {
         testEntityManager.persist(doctorBuilder);
         testEntityManager.flush();
 
-        Doctor doctorExpected = doctorRepository.findFirstById(1L);
+        Doctor doctorExpected = doctorRepository.findFirstById(doctorBuilder.getId());
 
         assertThat(doctorExpected).isEqualTo(doctorBuilder);
     }

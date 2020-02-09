@@ -9,9 +9,11 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.test.web.servlet.MockMvc;
 import uk.wanat.theclinick.model.Appointment;
+import uk.wanat.theclinick.model.Doctor;
 import uk.wanat.theclinick.model.ExaminationRoom;
 import uk.wanat.theclinick.model.Speciality;
 import uk.wanat.theclinick.service.AppointmentServiceImpl;
+import uk.wanat.theclinick.service.DoctorServiceImpl;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -35,6 +37,9 @@ class AppointementControllerIT {
 
     @MockBean
     private AppointmentServiceImpl appointmentService;
+
+    @MockBean
+    private DoctorServiceImpl doctorService;
 
 
     @BeforeEach
@@ -82,6 +87,24 @@ class AppointementControllerIT {
                 put("/showAllapointments")
                         .requestAttr("appointmentList", appointmentList))
                 .andExpect(status().isOk());
+    }
+
+    @Test
+    void chooseSpeciality_ReturnsHttpStatusOk() throws Exception {
+        //given
+        List<Doctor> doctorList = new ArrayList<>();
+        doctorList.add(Doctor.builder().speciality(Speciality.DENTISTRY).build());
+
+        //when
+        when(doctorService.findAll()).thenReturn(doctorList);
+
+        mockMvc.perform(
+                put("/appointment/{speciality}/chosen", String.valueOf(Speciality.DENTISTRY))
+                        .requestAttr("doctorsWithSpecialityList", doctorService.findAll()))
+                .andExpect(status().isOk());
+
+
+        verifyNoMoreInteractions(appointmentService);
     }
 
 }
