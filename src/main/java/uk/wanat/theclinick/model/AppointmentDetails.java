@@ -26,7 +26,8 @@ public class AppointmentDetails {
     private String medicine;
 
     @Builder
-    public AppointmentDetails(String natureOfSicknessAndSymptoms, String medicalExamination, String treatment, String medicine) {
+    public AppointmentDetails(Long id, String natureOfSicknessAndSymptoms, String medicalExamination, String treatment, String medicine) {
+        this.id = id;
         this.natureOfSicknessAndSymptoms = natureOfSicknessAndSymptoms;
         this.medicalExamination = medicalExamination;
         this.treatment = treatment;

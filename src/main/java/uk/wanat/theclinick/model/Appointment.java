@@ -43,7 +43,8 @@ public class Appointment {
     private AppointmentDetails appointmentDetails;
 
     @Builder
-    public Appointment(LocalDateTime appointmetDate, ExaminationRoom examinationRoom) {
+    public Appointment(Long id, LocalDateTime appointmetDate, ExaminationRoom examinationRoom) {
+        this.id = id;
         this.appointmetDate = appointmetDate;
         this.examinationRoom = examinationRoom;
     }

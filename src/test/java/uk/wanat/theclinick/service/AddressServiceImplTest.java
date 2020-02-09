@@ -8,6 +8,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import uk.wanat.theclinick.model.Address;
 import uk.wanat.theclinick.repository.AddressRepository;
+import uk.wanat.theclinick.repository.DoctorRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -65,7 +66,7 @@ public class AddressServiceImplTest {
         List<Address> addressServiceImplAll = addressServiceImpl.findAll();
 
         assertNotNull(returnAddressList);
-        assertEquals(2L, addressServiceImplAll.size());
+        assertEquals(2, addressServiceImplAll.size());
     }
 
     @Test

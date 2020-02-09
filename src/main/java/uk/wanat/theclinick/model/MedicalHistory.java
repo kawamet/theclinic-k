@@ -31,7 +31,8 @@ public class MedicalHistory {
     private Patient patient;
 
     @Builder
-    public MedicalHistory(String allergy, String undergoneSurgery, String pregnancy, boolean diabetes, String cancerFamilyHistory, String underMedications) {
+    public MedicalHistory(Long id, String allergy, String undergoneSurgery, String pregnancy, boolean diabetes, String cancerFamilyHistory, String underMedications) {
+        this.id = id;
         this.allergy = allergy;
         this.undergoneSurgery = undergoneSurgery;
         this.pregnancy = pregnancy;

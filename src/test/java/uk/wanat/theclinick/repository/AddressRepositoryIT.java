@@ -7,6 +7,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit4.SpringRunner;
 import uk.wanat.theclinick.model.Address;
+import uk.wanat.theclinick.model.Doctor;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

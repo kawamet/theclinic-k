@@ -4,11 +4,8 @@ package uk.wanat.theclinick.model;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import uk.wanat.theclinick.controller.AddressController;
 import uk.wanat.theclinick.controller.PatientController;
-import uk.wanat.theclinick.repository.AddressRepository;
 import uk.wanat.theclinick.repository.PatientRepository;
-import uk.wanat.theclinick.service.AddressServiceImpl;
 import uk.wanat.theclinick.service.PatientServiceImpl;
 
 import static org.assertj.core.api.Assertions.assertThat;
