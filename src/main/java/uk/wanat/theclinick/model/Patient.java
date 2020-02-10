@@ -25,8 +25,8 @@ public class Patient {
     private Long id;
     @OneToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
             CascadeType.REFRESH, CascadeType.REMOVE})
-    @JoinColumn(name = "login_id", referencedColumnName = "id")
-    private Login login;
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private User user;
     @Column(name = "first_name", length = 50)
     private String firstName;
     @Column(name = "last_name", length = 50)
