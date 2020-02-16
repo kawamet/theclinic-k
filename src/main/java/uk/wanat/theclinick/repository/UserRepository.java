@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import uk.wanat.theclinick.model.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
-    User findByUsername(String emial);
+    User findByEmail(String email);
 }
