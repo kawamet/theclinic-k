@@ -1,5 +1,6 @@
 package uk.wanat.theclinick.model;
 
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -29,8 +30,9 @@ public class MedicalHistory {
     @OneToOne(mappedBy = "medicalHistory", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Patient patient;
 
-
-    public MedicalHistory(String allergy, String undergoneSurgery, String pregnancy, boolean diabetes, String cancerFamilyHistory, String underMedications) {
+    @Builder
+    public MedicalHistory(Long id, String allergy, String undergoneSurgery, String pregnancy, boolean diabetes, String cancerFamilyHistory, String underMedications) {
+        this.id = id;
         this.allergy = allergy;
         this.undergoneSurgery = undergoneSurgery;
         this.pregnancy = pregnancy;

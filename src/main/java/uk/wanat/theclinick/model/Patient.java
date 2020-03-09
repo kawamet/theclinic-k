@@ -1,5 +1,6 @@
 package uk.wanat.theclinick.model;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -54,21 +55,16 @@ public class Patient {
                     CascadeType.DETACH, CascadeType.REFRESH})
     private List<Appointment> appointments;
 
-    public Patient(String firstName, String lastName, Gender gender, String phoneNumber, String nationalInsuranceNumber, LocalDate birthDate) {
+    @Builder
+    public Patient(Long id, String firstName, String lastName, Gender gender, String phoneNumber, String nationalInsuranceNumber, LocalDate birthDate) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.gender = gender;
         this.phoneNumber = phoneNumber;
         this.nationalInsuranceNumber = nationalInsuranceNumber;
         this.birthDate = birthDate;
-    }
-
-    public void add(Appointment tempAppointment) {
-        if (appointments == null) {
-            appointments = new ArrayList<>();
-        }
-        appointments.add(tempAppointment);
-        tempAppointment.setPatient(this);
+        appointments = new ArrayList<>();
     }
 
     @Override

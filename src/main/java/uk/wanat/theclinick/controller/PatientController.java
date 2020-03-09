@@ -50,7 +50,7 @@ public class PatientController {
     }
 
     @PostMapping("/patient")
-    public String updateUpdate(@ModelAttribute Patient patient) {
+    public String updatePatient(@ModelAttribute Patient patient) {
         patientServiceImpl.update(patient.getId(), patient);
         return "redirect:/showAllPatients";
     }

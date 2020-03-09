@@ -16,6 +16,7 @@ public class DoctorController {
     @Autowired
     DoctorServiceImpl doctorServiceImpl;
 
+
     @RequestMapping("/doctor/addDoctor")
     public String addDoctor(Model model){
         model.addAttribute("doctor", new Doctor());

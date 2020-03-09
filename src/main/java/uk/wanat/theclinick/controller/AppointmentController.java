@@ -43,7 +43,6 @@ public class AppointmentController {
         return "appointment/appointment-show-all";
     }
 
-
     @RequestMapping("/appointment/chooseSpeciality")
     public String chooseSpeciality(Model model) {
         List<Speciality> enums = Arrays.asList(Speciality.values());
@@ -71,21 +70,6 @@ public class AppointmentController {
         model.addAttribute("appointment", new Appointment());
 
         return "appointment/choose-appointemnt-time";
-    }
-
-    private List<LocalDateTime> getAvailableAppointments(List<Appointment> doctorAppointments) {
-        List<LocalDateTime> doctorsAppointmesLDT = doctorAppointments.stream().map(Appointment::getAppointmetDate).collect(Collectors.toList());
-        List<LocalDateTime> allAppointemntsLDT = getAllAppointemntsTime();
-
-        List<LocalDateTime> unbookedAppointments = getAllAppointemntsTime();
-        for (LocalDateTime allAppointmentsTemp : allAppointemntsLDT) {
-            for (LocalDateTime doctorsAppointmets : doctorsAppointmesLDT) {
-                if (allAppointmentsTemp.isEqual(doctorsAppointmets)) {
-                    unbookedAppointments.remove(allAppointmentsTemp);
-                }
-            }
-        }
-        return unbookedAppointments;
     }
 
     @PostMapping("/appointment/addAppointment")
@@ -116,4 +100,19 @@ public class AppointmentController {
         return avaiableDatesList;
     }
 
+
+    private List<LocalDateTime> getAvailableAppointments(List<Appointment> doctorAppointments) {
+        List<LocalDateTime> doctorsAppointmesLDT = doctorAppointments.stream().map(Appointment::getAppointmetDate).collect(Collectors.toList());
+        List<LocalDateTime> allAppointemntsLDT = getAllAppointemntsTime();
+
+        List<LocalDateTime> unbookedAppointments = getAllAppointemntsTime();
+        for (LocalDateTime allAppointmentsTemp : allAppointemntsLDT) {
+            for (LocalDateTime doctorsAppointmets : doctorsAppointmesLDT) {
+                if (allAppointmentsTemp.isEqual(doctorsAppointmets)) {
+                    unbookedAppointments.remove(allAppointmentsTemp);
+                }
+            }
+        }
+        return unbookedAppointments;
+    }
 }

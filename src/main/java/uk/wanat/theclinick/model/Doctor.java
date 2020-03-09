@@ -1,5 +1,6 @@
 package uk.wanat.theclinick.model;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -25,12 +26,15 @@ public class Doctor {
     @Column(name = "last_name", length = 50)
     private String lastName;
 
+
     @OneToMany(mappedBy="doctor",
             cascade= {CascadeType.PERSIST, CascadeType.MERGE,
                     CascadeType.DETACH, CascadeType.REFRESH})
     private List<Appointment> appointments;
 
-    public Doctor(Speciality speciality, String firstName, String lastName) {
+    @Builder
+    public Doctor(Long id, Speciality speciality, String firstName, String lastName) {
+        this.id = id;
         this.speciality = speciality;
         this.firstName = firstName;
         this.lastName = lastName;

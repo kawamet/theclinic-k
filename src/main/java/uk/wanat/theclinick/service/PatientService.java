@@ -5,7 +5,7 @@ import uk.wanat.theclinick.model.Patient;
 import java.util.List;
 import java.util.Optional;
 
-public interface PatientService {
+public interface PatientService extends CrudService<Patient, Long> {
 
     Optional<Patient> findById(Long patientId);
 
