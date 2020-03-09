@@ -25,20 +25,9 @@ class AppointmentDetailsControllerIT {
     @Autowired
     private MockMvc mockMvc;
 
-    @Autowired
-    private ApplicationContext applicationContext;
-
     @MockBean
     private AppointmentDetailsServiceImpl appointmentDetailsService;
 
-
-    @BeforeEach
-    void printApplicationContext() {
-        Arrays.stream(applicationContext.getBeanDefinitionNames())
-                .map(name -> applicationContext.getBean(name).getClass().getName())
-                .sorted()
-                .forEach(System.out::println);
-    }
 
     @Test
     void putAddAppointmentDetailsReturnsHttpStatusOk() throws Exception {
